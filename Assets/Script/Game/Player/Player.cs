@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Utility;
 
 namespace Game
 {
+    /// <summary>
+    /// Player stores tresures
+    /// </summary>
     public class Player : MonoBehaviour
     {
-        [SerializeField]
-        private TreasureCarrier carrier;
 
         private List<Treasure> treasures;
         public List<Treasure> Treasures {  get { return treasures; } }
@@ -20,16 +20,6 @@ namespace Game
         public void AddTreasure(Treasure treasure)
         {
             treasures.Add(treasure);
-            GameLogger.Log("collect treasure");
-
-            if(treasures.Count > 1)
-            {
-                carrier.AddTreasure(treasure.transform, treasures[treasures.Count - 2].transform);
-            } 
-            else
-            {
-                carrier.AddTreasure(treasure.transform);
-            }
         }
 
         public void RemoveTreasure()

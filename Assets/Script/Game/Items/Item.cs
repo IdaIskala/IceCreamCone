@@ -19,6 +19,14 @@ namespace Game
             }
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                CollidePlayer(collision.gameObject);
+            }
+        }
+
         private void CollidePlayer(GameObject playerObj)
         {
             Player player = playerObj.GetComponent<Player>();

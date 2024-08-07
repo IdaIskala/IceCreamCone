@@ -196,4 +196,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8542696305605192606}
   treasureStackAnchor: {fileID: 6155470876506766059}
-  stiffness: 0.9
+  springConstant: 10
+  dampingConstant: 6
