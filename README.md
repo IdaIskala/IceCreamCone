@@ -3,5 +3,5 @@
 
 ![ice cream ball collecting](images/gameplay.png)
 
-<h2>>Features</h2>
+<h2>Features</h2>
 <p>-play as a waffle and collect ice cream balls into wobbly stack</p>
