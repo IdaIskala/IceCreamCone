@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player
+    uniqueID: 556876649
+    locked: 0
+  - name: IceCream
+    uniqueID: 731822301
+    locked: 0

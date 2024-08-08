@@ -18,6 +18,14 @@ namespace Game
         [SerializeField]
         private float dampingConstant = 6f; //kuinka paljon jousi oskilloi, damping constant: b < sqrt(4km) more oscillatio, b>=sqrt(4km) no oscillation
 
+        [Range(0.1f, 100f)]
+        [SerializeField]
+        private float mass = 1f;
+
+        [Range(0.01f, 0.99f)]
+        [SerializeField]
+        private float rotSpeed;
+
         private Player player;
 
         private void Start()
@@ -42,7 +50,8 @@ namespace Game
                     goalObj = player.Treasures[i - 1].transform;
                 }
 
-                UpdateConnection(goalObj, connectedObj, 1f, springConstant, dampingConstant, 1f, 0f);
+                UpdateConnection(goalObj, connectedObj, 0.5f, springConstant, dampingConstant, mass, 0f);
+                RotateItems(goalObj, connectedObj, 0.5f, rotSpeed);
             }
         }
 
@@ -68,6 +77,15 @@ namespace Game
             float y = x0.y * change;
 
             connectedObj.transform.position = connectedObj.transform.position + (x0 - new Vector3(x, y, x0.z));
+        }
+
+        //rotate treasures towards the object below 
+        private void RotateItems(Transform goalObj, Transform connectedObj, float goalDist, float rotSpeed)
+        {
+            Vector3 rotDir = (goalObj.transform.position - connectedObj.transform.position).normalized;
+            float angle = Vector3.Angle(Vector3.down, rotDir);
+            angle = rotDir.x >= 0 ? angle : -angle;
+            connectedObj.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
     }
