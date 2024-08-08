@@ -20,6 +20,7 @@ namespace Game
         public void AddTreasure(Treasure treasure)
         {
             treasures.Add(treasure);
+            treasure.SpriteRenderer.sortingOrder = treasures.Count - 1;
         }
 
         public void RemoveTreasure()

@@ -22,10 +22,6 @@ namespace Game
         [SerializeField]
         private float mass = 1f;
 
-        [Range(0.01f, 0.99f)]
-        [SerializeField]
-        private float rotSpeed;
-
         private Player player;
 
         private void Start()
@@ -51,7 +47,7 @@ namespace Game
                 }
 
                 UpdateConnection(goalObj, connectedObj, 0.5f, springConstant, dampingConstant, mass, 0f);
-                RotateItems(goalObj, connectedObj, 0.5f, rotSpeed);
+                RotateItems(goalObj, connectedObj);
             }
         }
 
@@ -80,7 +76,7 @@ namespace Game
         }
 
         //rotate treasures towards the object below 
-        private void RotateItems(Transform goalObj, Transform connectedObj, float goalDist, float rotSpeed)
+        private void RotateItems(Transform goalObj, Transform connectedObj)
         {
             Vector3 rotDir = (goalObj.transform.position - connectedObj.transform.position).normalized;
             float angle = Vector3.Angle(Vector3.down, rotDir);

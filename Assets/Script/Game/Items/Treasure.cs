@@ -14,7 +14,7 @@ namespace Game
 
         private void Start()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
         /// <summary>

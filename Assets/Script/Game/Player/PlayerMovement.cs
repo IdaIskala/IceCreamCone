@@ -16,6 +16,14 @@ namespace Game
         [Range(0.1f, 10f)]
         private float jumpForce = 1f;
 
+        [SerializeField]
+        [Range(10f, 500f)]
+        private float rotationSpeed = 150f; //player rotates to the opposite direction of the movement
+
+        [SerializeField]
+        [Range(0f, 90f)]
+        private float maxRotation = 35f; //player rotates to the opposite direction of the movement
+
         private Rigidbody2D player;
 
         private float movementDir;
@@ -30,6 +38,7 @@ namespace Game
         private void Update()
         {
             Move();
+            UpdatePlayerRotation();
         }
 
         public void SetMovementDir(float dir)
@@ -63,6 +72,16 @@ namespace Game
             {
                 onGround = true;
             }
+        }
+
+        //rotate player when moving
+        private void UpdatePlayerRotation()
+        {
+            float rotationPercent = player.velocity.x / movementSpeed;
+
+            float rotation = rotationPercent * maxRotation;
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, 0f, rotation), rotationSpeed * Time.deltaTime);
         }
     }
 }
