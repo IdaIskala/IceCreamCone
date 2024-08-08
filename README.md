@@ -3,5 +3,8 @@
 
 ![ice cream ball collecting](images/collectingIcecreams.png)
 
+
 <h2>Features</h2>
 <p>-play as a waffle and collect ice cream balls into wobbly stack</p>
+
+![ice cream ball collecting](images/IceCreamCollecting.gif)

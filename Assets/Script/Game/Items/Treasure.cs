@@ -9,6 +9,14 @@ namespace Game
     {
         bool collected = false;
 
+        private SpriteRenderer spriteRenderer;
+        public SpriteRenderer SpriteRenderer {  get { return spriteRenderer; } }
+
+        private void Start()
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
         /// <summary>
         /// Add this treasure for player
         /// </summary>
